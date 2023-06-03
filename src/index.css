@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === variables === */
+:root {
+  --purple: #980498;
+  --lightPurple: #f8f0f8;
+}
+
+/* logo font */
+@font-face {
+  font-family: 'Logo';
+  src: url(./assets/Satisfy-Regular.ttf);
+}
+.logo {
+  user-select: none;
+  color: #980498;
+  font-family: 'Logo';
+  font-weight: 600;
+}
+
+.form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.form label:focus-within > span,
+input:not(:placeholder-shown) + span {
+  color: var(--purple);
+  transform: translateY(-0.4rem);
+}
+
+/* spinner */
+.spinner {
+  animation: spinner 1s infinite linear;
+}
+.spinner::before,
+.spinner::after {
+  content: '';
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+.spinner::before {
+  border-color: var(--purple) #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+.spinner::after {
+  margin: 8.9px;
+}
+@keyframes spinner {
+  100% {
+    transform: rotate(1turn);
+  }
+}
